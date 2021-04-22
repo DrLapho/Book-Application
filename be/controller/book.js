@@ -12,3 +12,11 @@ exports.getBooks = (req, res) => {
     res.json(data);
   });
 };
+//delete a specific book
+exports.deleteBook = (req, res) => {
+  Book.findByIdAndRemove(req.params.id).then((data) => {
+    res.json({
+      message: data,
+    });
+  });
+};
