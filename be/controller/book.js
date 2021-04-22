@@ -20,3 +20,10 @@ exports.deleteBook = (req, res) => {
     });
   });
 };
+
+//edit a specific book
+exports.editBook = (req, res) => {
+  Book.findByIdAndUpdate(req.params.id, { $set: req.body }).then((data) => {
+    res.json(data);
+  });
+};
